@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Groviguide - Personalized Garden Consulting & Layout Planning</title>
+<meta name="description" content="Groviguide - Your vision. Our greenprint. Personalized garden consulting & layout planning services in New York." />
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Roboto Slab', serif;
+    background-color: #f4f2ed;
+    color: #374046;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  a {
+    color: #556b2f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: #8a9a5b;
+    outline: none;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: #cbd5b2; /* sage green softened */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  .logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #374046;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #556b2f;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+
+  /* Hamburger menu button */
+  .mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #374046;
+  }
+  .mobile-menu-button:focus {
+    outline: 2px solid #8a9a5b;
+    outline-offset: 2px;
+  }
+
+  /* Mobile navigation */
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #cbd5b2;
+    padding: 1rem 0;
+  }
+  .mobile-nav a {
+    padding: 1rem;
+    border-top: 1px solid #a8b173;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #a9bc90, #d9d7c4);
+    padding: 4rem 1rem 6rem;
+    text-align: center;
+    color: #284118;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+  }
+  .hero p {
+    font-size: 1.35rem;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* Appointment Scheduler in Hero */
+  .appointment-scheduler {
+    background: #f0f0df;
+    border-radius: 12px;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  .appointment-scheduler h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #3b4d14;
+  }
+  .appointment-scheduler form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .appointment-scheduler label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #556b2f;
+  }
+  .appointment-scheduler input,
+  .appointment-scheduler select {
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid #a4b07a;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline-offset: 2px;
+    transition: border-color 0.3s ease;
+  }
+  .appointment-scheduler input:focus,
+  .appointment-scheduler select:focus {
+    border-color: #556b2f;
+  }
+  .appointment-scheduler button {
+    margin-top: 1rem;
+    background: #556b2f;
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .appointment-scheduler button:hover,
+  .appointment-scheduler button:focus {
+    background: #7a8f5e;
+    outline: none;
+  }
+  .appointment-scheduler .success-message {
+    margin-top: 0.75rem;
+    color: #284118;
+    font-weight: 600;
+  }
+
+  /* Main Content Sections */
+  main {
+    max-width: 1200px;
+    margin: 3rem auto 6rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  section {
+    background: #faf9f2;
+    border-radius: 14px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 6px 15px rgba(169, 188, 144, 0.15);
+  }
+  section h2 {
+    font-weight: 800;
+    font-size: 2rem;
+    color: #4f6338;
+    margin-bottom: 1rem;
+    border-left: 6px solid #7a8f5e;
+    padding-left: 0.75rem;
+  }
+  section p,
+  section li {
+    max-width: 900px;
+    color: #536053;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+  section ul {
+    padding-left: 1.25rem;
+    margin-top: 1rem;
+  }
+  section ul li {
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Why Choose Us Section */
+  #why-choose-us ul {
+    list-style: disc inside;
+    max-width: 900px;
+  }
+  #why-choose-us ul li {
+    margin-bottom: 0.9rem;
+  }
+
+  /* Gallery Section */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); /* Increased min size */
+    gap: 2rem;
+    justify-content: center;
+  }
+  .gallery-item {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: relative;
+    background: #e6e8d4;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover img,
+  .gallery-item:focus-within img {
+    transform: scale(1.05);
+  }
+
+  /* Garden Blueprint Viewer */
+  .blueprint-viewer {
+    margin-top: 1rem;
+    background: #dbe6c8;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: inset 0 0 12px rgba(119, 138, 55, 0.5);
+  }
+  .blueprint-viewer img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(85, 107, 47, 0.4);
+    max-height: 450px;
+    object-fit: contain;
+  }
+  .blueprint-viewer p {
+    margin-top: 0.75rem;
+    font-style: italic;
+    color: #536053;
+    font-size: 1rem;
+    max-width: 600px;
+  }
+
+  /* Feedback Form */
+  .feedback-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 1rem;
+  }
+  .feedback-form label {
+    font-weight: 600;
+    color: #556b2f;
+    font-size: 0.95rem;
+  }
+  .feedback-form input,
+  .feedback-form textarea {
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid #a4b07a;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 3rem;
+  }
+  .feedback-form textarea {
+    min-height: 6rem;
+  }
+  .feedback-form button {
+    background: #556b2f;
+    color: white;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+  .feedback-form button:hover,
+  .feedback-form button:focus {
+    background: #7a8f5e;
+    outline: none;
+  }
+  .feedback-success {
+    color: #284118;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  /* Disclaimer Section */
+  .disclaimer {
+    font-size: 0.875rem;
+    color: #737a52;
+    max-width: 700px;
+  }
+
+  /* Increase Customer Satisfaction Banner */
+  .satisfaction-banner {
+    background: #acc28a;
+    color: #374046;
+    padding: 1.75rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 8px 14px rgba(101, 164, 82, 0.3);
+  }
+
+  /* Footer */
+  footer {
+    background: #556b2f;
+    color: #d7dbce;
+    padding: 3rem 1rem 2rem;
+  }
+  footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  footer h3 {
+    font-weight: 700;
+    font-size: 1.15rem;
+    border-left: 5px solid #acc28a;
+    padding-left: 0.75rem;
+    margin-bottom: 0.5rem;
+    color: #e8f1d4;
+  }
+  footer address {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  footer a {
+    color: #acc28a;
+  }
+
+  /* Responsive layout */
+
+  @media (max-width: 640px) {
+    nav {
+      display: none;
+    }
+    .mobile-menu-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    .mobile-nav.show {
+      display: flex;
+    }
+    main {
+      padding: 0 1rem 4rem;
+      gap: 2rem;
+    }
+    .hero h1 {
+      font-size: 2.3rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    .appointment-scheduler {
+      max-width: 100%;
+      padding: 1rem 1.5rem;
+    }
+    section {
+      padding: 1.5rem 1.8rem;
+    }
+    section h2 {
+      font-size: 1.5rem;
+    }
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item img {
+      aspect-ratio: 4/3;
+    }
+    .feedback-form form {
+      max-width: 100%;
+    }
+  }
+  @media (min-width: 641px) and (max-width: 1023px) {
+    main {
+      padding: 0 2rem 4rem;
+      gap: 3rem;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+    }
+    section h2 {
+      font-size: 1.75rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    main {
+      flex-direction: row;
+      gap: 4rem;
+    }
+    .content-left,
+    .content-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    /* Gallery below blueprint on desktop - switched for content balance */
+    .gallery-blueprint-wrapper {
+      display: flex;
+      gap: 3rem;
+    }
+    /* Force 2 columns on large screens for bigger images */
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-item img {
+      aspect-ratio: 4 / 3;
+    }
+    .appointment-scheduler {
+      max-width: 400px;
+    }
+  }
+  @media (min-width: 1440px) {
+    body {
+      font-size: 18px;
+    }
+    main {
+      max-width: 1400px;
+      gap: 5rem;
+      margin-bottom: 8rem;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+    }
+    section h2 {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <div class="logo" tabindex="0">Groviguide</div>
+    <nav role="navigation" aria-label="Primary Navigation">
+  <a href="index.html" tabindex="0"aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+    </nav>
+    <button class="mobile-menu-button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle menu">
+      <span class="material-icons" aria-hidden="true">menu</span>
+    </button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+  <a href="index.html" tabindex="0"aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+  </nav>
+</header>
+<section class="hero" aria-label="Site Introduction and Appointment Scheduling">
+  <h1 tabindex="0">Your vision. Our greenprint.</h1>
+  <p tabindex="0">Personalized garden consulting & layout planning to bring your dream garden to life.</p>
+  <div class="appointment-scheduler" aria-live="polite" aria-label="Schedule an appointment">
+    <h2>Book Your Consultation</h2>
+    <form id="appointment-form" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required aria-required="true" autocomplete="name" placeholder="Your full name" />
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="you@example.com" />
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required aria-required="true" min="" />
+      <label for="time">Preferred Time</label>
+      <select id="time" name="time" required aria-required="true">
+        <option value="">Select time slot</option>
+        <option value="9am-11am">9 AM - 11 AM</option>
+        <option value="11am-1pm">11 AM - 1 PM</option>
+        <option value="1pm-3pm">1 PM - 3 PM</option>
+        <option value="3pm-5pm">3 PM - 5 PM</option>
+      </select>
+      <button type="submit" aria-label="Submit appointment request">Request Appointment</button>
+      <div class="success-message" aria-live="assertive" role="alert" style="display:none;">Thank you! Your appointment request has been received.</div>
+    </form>
+  </div>
+</section>
+<main>
+  <div class="content-left">
+    <section id="about-us" tabindex="0" aria-label="About Us">
+      <h2>About Groviguide</h2>
+      <p>At Groviguide, we specialize in personalized garden consulting and expert layout planning. Based in the heart of New York, we understand the unique challenges and opportunities presented by urban and suburban gardens. Our mission is to transform your outdoor spaces into thriving, beautiful sanctuaries that reflect your vision and lifestyle.</p>
+      <p>With over 20 years of combined experience in horticulture, design, and landscaping, our team brings unmatched expertise and passion to every project. We collaborate closely with clients to ensure each garden is tailored to their preferences, environmental conditions, and future growth.</p>
+      <p>Committed to sustainability and natural harmony, Groviguide integrates eco-friendly practices and native plants to create gardens that flourish with minimal maintenance while contributing positively to local biodiversity.</p>
+    </section>
+    <section id="why-choose-us" tabindex="0" aria-label="Why Choose Us">
+      <h2>Why Choose Us</h2>
+      <ul>
+        <li><strong>Personalized Service:</strong> We tailor every garden plan to your unique vision, style, and the specific conditions of your space.</li>
+        <li><strong>Expertise & Experience:</strong> Our knowledgeable team has decades of combined experience in horticulture, landscaping, and design.</li>
+        <li><strong>Sustainable Practices:</strong> We prioritize eco-friendly methods and native plants to create beautiful, low-maintenance, and environmentally responsible gardens.</li>
+        <li><strong>Comprehensive Support:</strong> From planning to implementation and maintenance guidance, we help you at every stage.</li>
+        <li><strong>Cutting-Edge Tools:</strong> We use the latest design technology including blueprint visualizations and personalized consulting tools.</li>
+        <li><strong>High Customer Satisfaction:</strong> Our clients return season after season, referring friends and family based on the quality and care we provide.</li>
+      </ul>
+    </section>
+    <section id="services" tabindex="0" aria-label="Services Overview">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Personalized Garden Consulting: We assess your space, soil, climate, and preferences to create a customized garden strategy.</li>
+        <li>Layout Planning & Design: Architectural blueprints and 3D visualizations to guide your garden's transformation.</li>
+        <li>Plant Selection & Sourcing: Expert recommendations ensuring optimal plant health and aesthetics.</li>
+        <li>Installation & Maintenance Guidance: We provide step-by-step plans or connect you with trusted professionals.</li>
+        <li>Sustainable & Ecological Approaches: Incorporating native plants, water-wise gardening, and habitat creation.</li>
+        <li>Garden Revitalization: Help to restore and refresh existing spaces to their full potential.</li>
+        <li>Custom Outdoor Features: Patios, pathways, water features, and garden lighting advice.</li>
+      </ul>
+    </section>
+    <section id="tips" tabindex="0" aria-label="Gardening Tips">
+      <h2>Gardening Tips & Advice</h2>
+      <article>
+        <h3>Seasonal Planting Guides</h3>
+        <p>Knowing what to plant and when can dramatically improve your garden’s success. Early spring is ideal for starting annuals and herbs, while fall is perfect for planting perennials and shrubs to establish roots before winter. Always consider local frost dates and microclimate conditions.</p>
+      </article>
+      <article>
+        <h3>Soil Health Essentials</h3>
+        <p>Healthy soil is the foundation of a thriving garden. Regularly test soil pH and nutrient levels. Incorporate organic compost to improve texture, moisture retention, and fertility. Avoid compacting soil around roots to maintain aeration.</p>
+      </article>
+      <article>
+        <h3>Watering Wisely</h3>
+        <p>Efficient watering minimizes waste and supports plant health. Water deeply but infrequently to encourage strong roots. Early morning watering reduces evaporation, and drip irrigation systems target water usage precisely at the roots.</p>
+      </article>
+      <article>
+        <h3>Pest Management</h3>
+        <p>Encourage beneficial insects like ladybugs and bees to control pests naturally. Use companion planting strategies to deter harmful insects. Avoid harsh chemicals that can disrupt your garden’s ecosystem.</p>
+      </article>
+      <article>
+        <h3>Pruning & Maintenance</h3>
+        <p>Regular pruning promotes healthy growth and flowering. Remove dead or diseased branches promptly. Schedule pruning during dormancy for most plants, but research specifics for your species.</p>
+      </article>
+    </section>
+  </div>
+  <div class="content-right">
+    <section id="gallery" tabindex="0" aria-label="Client Project Gallery">
+      <h2>Client Project Gallery</h2>
+      <div class="gallery-grid">
+        <figure class="gallery-item" tabindex="0">
+          <img src="p1.png" alt="Serene front garden with natural sage green plants and soft tan mulch pathways, professionally landscaped" />
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="p2.png" alt="Cozy backyard nook with wooden bench surrounded by lush greenery and soft tan stone flooring, peaceful outdoor space" />
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="p3.png" alt="Modern patio layout with sage green chairs and soft tan tile floor creating a natural elegant atmosphere" />
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="p4.png" alt="Garden lighting design illuminating soft tan stone walls and sage green plants at dusk, creating ambiance" />
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="p5.png" alt="Water feature installation with natural stone basin surrounded by green plants and tan pebbles, tranquil space" />
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="p6.png" alt="Urban rooftop garden with raised beds of sage green plants and soft tan decking, optimizing small spaces" />
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="p7.png" alt="Garden pathways and borders with soft tan gravel and edging plants of sage green variety creating harmony" />
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="p8.png" alt="Native plant garden featuring a variety of sage green foliage plants paired with soft tan natural mulch base" />
+        </figure>
+      </div>
+    </section>
+    <section id="blueprint-viewer" tabindex="0" aria-label="Garden Blueprint Viewer">
+      <h2>Garden Blueprint Viewer</h2>
+      <div class="blueprint-viewer" tabindex="0">
+        <img src="m1.png" alt="Detailed garden blueprint layout showing zones of planting, paths, water features, and structures with sage green and soft tan highlights" />
+        <p>Explore your customized garden blueprint with clear layout zones for planting, pathways, water features, and seating areas. This viewer allows you to visualize the complete garden design plan before implementation.</p>
+      </div>
+    </section>
+  </div>
+</main>
+<section id="feedback" class="feedback-form" tabindex="0" aria-label="Client feedback form and testimonials">
+  <div class="container">
+    <h2>Client Feedback</h2>
+    <form id="feedback-form" novalidate>
+      <label for="feedback-name">Your Name</label>
+      <input type="text" id="feedback-name" name="feedback-name" placeholder="Your name" required aria-required="true" autocomplete="name" />
+      <label for="feedback-email">Your Email</label>
+      <input type="email" id="feedback-email" name="feedback-email" placeholder="you@example.com" required aria-required="true" autocomplete="email" />
+      <label for="feedback-message">Your Feedback</label>
+      <textarea id="feedback-message" name="feedback-message" placeholder="Write your feedback here..." rows="5" required aria-required="true"></textarea>
+      <button type="submit" aria-label="Submit feedback">Submit Feedback</button>
+      <div id="feedback-response" class="feedback-success" role="alert" aria-live="assertive" style="display:none;"></div>
+    </form>
+  </div>
+</section>
+<section id="disclaimer" tabindex="0" aria-label="Disclaimer information">
+  <div class="container">
+    <h2>Disclaimer</h2>
+    <p class="disclaimer">The information provided by Groviguide is for general informational purposes only. While we strive to provide accurate and timely advice, the specific results and effectiveness of garden planning and consulting may vary based on numerous external factors such as climate, soil conditions, and adherence to recommendations. Groviguide makes no warranties or guarantees of any kind regarding the outcomes of services or information presented on this site. Always conduct additional research and consult local experts for critical decisions.</p>
+  </div>
+</section>
+<section class="satisfaction-banner" aria-label="Customer satisfaction notice">
+  <div class="container">
+    Increase Your Garden Satisfaction Today with Groviguide’s Expert Guidance and Tailored Services
+  </div>
+</section>
+<footer>
+  <div class="footer-container" role="contentinfo" aria-label="Footer Information">
+    <h3>Contact Us</h3>
+    <address>
+      Groviguide<br />
+      16 Washington Mews, New York, NY 10003, USA<br />
+      <a href="mailto:contact@groviguide.com">contact@groviguide.com</a><br />
+      <a href="tel:+12122345678" aria-label="Phone number">+1 (212) 234-5678</a>
+    </address>
+    <p>© 2024 Groviguide. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+  // Mobile menu toggle
+  const menuButton = document.querySelector('.mobile-menu-button');
+  const mobileNav = document.getElementById('mobile-nav');
+  menuButton.addEventListener('click', () => {
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+    menuButton.setAttribute('aria-expanded', !expanded);
+    mobileNav.classList.toggle('show');
+    // Manage focusability for accessibility
+    const links = mobileNav.querySelectorAll('a');
+    links.forEach(link => link.tabIndex = !expanded ? 0 : -1);
+  });
+
+  // Set minimum date for appointment date input (today)
+  const dateInput = document.getElementById('date');
+  const todayISO = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', todayISO);
+
+  // Appointment form submission (simulate success)
+  const appointmentForm = document.getElementById('appointment-form');
+  const appointmentSuccessMessage = appointmentForm.querySelector('.success-message');
+
+  appointmentForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!appointmentForm.checkValidity()) {
+      appointmentForm.reportValidity();
+      return;
+    }
+    // Simulate submission delay
+    appointmentSuccessMessage.style.display = 'none';
+    setTimeout(() => {
+      appointmentSuccessMessage.style.display = 'block';
+      appointmentForm.reset();
+      appointmentForm.querySelector('#date').setAttribute('min', todayISO);
+    }, 500);
+  });
+
+  // Feedback form submission (simulate)
+  const feedbackForm = document.getElementById('feedback-form');
+  const feedbackResponse = document.getElementById('feedback-response');
+  feedbackForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!feedbackForm.checkValidity()) {
+      feedbackForm.reportValidity();
+      return;
+    }
+    feedbackResponse.style.display = 'none';
+    setTimeout(() => {
+      feedbackResponse.textContent = 'Thank you for your feedback! We appreciate your input and will use it to improve our services.';
+      feedbackResponse.style.display = 'block';
+      feedbackForm.reset();
+    }, 500);
+  });
+</script>
+</body>
+</html>
+
+

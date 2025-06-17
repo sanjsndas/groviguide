@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Groviguide - Cookies Policy</title>
+<meta name="description" content="Groviguide Cookies Policy - Learn about our use of cookies and tracking technologies for personalized garden consulting services." />
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Roboto Slab', serif;
+    background-color: #f4f2ed;
+    color: #374046;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+  }
+  a {
+    color: #556b2f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: #8a9a5b;
+    outline: none;
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: #cbd5b2; /* sage green softened */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #374046;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #556b2f;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+
+  /* Hamburger menu button */
+  .mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #374046;
+  }
+  .mobile-menu-button:focus {
+    outline: 2px solid #8a9a5b;
+    outline-offset: 2px;
+  }
+
+  /* Mobile navigation */
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #cbd5b2;
+    padding: 1rem 0;
+  }
+  .mobile-nav a {
+    padding: 1rem;
+    border-top: 1px solid #a8b173;
+  }
+
+  /* Cookies Content Styles */
+  main {
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+  }
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #4f6338;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #556b2f;
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    border-left: 5px solid #7a8f5e;
+    padding-left: 1rem;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+    color: #637339;
+  }
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #536053;
+  }
+  ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  ul li {
+    margin-bottom: 0.7rem;
+    font-size: 1.05rem;
+    color: #4a553a;
+  }
+  a.inline-link {
+    color: #7a8f5e;
+    font-weight: 600;
+  }
+  a.inline-link:hover,
+  a.inline-link:focus {
+    color: #556b2f;
+  }
+
+  /* Footer */
+  footer {
+    background: #556b2f;
+    color: #d7dbce;
+    padding: 3rem 1rem 2rem;
+  }
+  footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  footer h3 {
+    font-weight: 700;
+    font-size: 1.15rem;
+    border-left: 5px solid #acc28a;
+    padding-left: 0.75rem;
+    margin-bottom: 0.5rem;
+    color: #e8f1d4;
+  }
+  footer address {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  footer a {
+    color: #acc28a;
+  }
+
+  /* Responsive layout */
+
+  @media (max-width: 640px) {
+    nav {
+      display: none;
+    }
+    .mobile-menu-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    .mobile-nav.show {
+      display: flex;
+    }
+    .header-inner {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    main {
+      padding: 0 1rem;
+    }
+  }
+  @media (min-width: 641px) and (max-width: 1023px) {
+    .header-inner {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    main {
+      padding: 0 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    main {
+      padding: 0 2.5rem 4rem 2.5rem;
+    }
+  }
+  @media (min-width: 1440px) {
+    body {
+      font-size: 18px;
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    main {
+      padding: 0 3rem 6rem 3rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Cookie consent dialog */
+  #cookie-consent-dialog {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #cbd5b2;
+    color: #374046;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    z-index: 1100;
+  }
+  #cookie-consent-dialog p {
+    flex: 1 1 300px;
+    margin: 0 1rem 0 0;
+  }
+  #cookie-consent-dialog button {
+    background: #556b2f;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 0.5rem;
+  }
+  #cookie-consent-dialog button:hover,
+  #cookie-consent-dialog button:focus {
+    background: #7a8f5e;
+    outline: none;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner" role="banner">
+    <div class="logo" tabindex="0">Groviguide</div>
+    <nav role="navigation" aria-label="Primary Navigation">
+     <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0"aria-current="page">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+    </nav>
+    <button class="mobile-menu-button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle menu">
+      <span class="material-icons" aria-hidden="true">menu</span>
+    </button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+ <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0"aria-current="page">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+  </nav>
+</header>
+
+<main>
+  <h1 tabindex="0">Cookies Policy</h1>
+
+  <p>This Cookies Policy explains how Groviguide ("we", "us", or "our") uses cookies and similar tracking technologies on our website. This document provides comprehensive detail describing the use, management, and control of cookies, helping you understand their importance and giving you informed choices. We aim to be transparent about how we collect and handle information through cookies and to comply with applicable regulations.</p>
+
+  <p>Cookies are small text files stored on your device by your web browser when you visit a website. They enable the website to remember your preferences, recognize your device, and provide tailored content or services. On this page, we've listed 40 detailed contact-related points about cookies and their usage in a clear, explanatory manner to help you make informed decisions regarding your privacy and website experience.</p>
+
+  <h2>Detailed Contact-Related Points About Cookies</h2>
+
+  <ol>
+    <li>
+      <h3>What Are Cookies?</h3>
+      <p>Cookies are small data files that websites store on your device to remember information about your visit. This helps enhance your browsing experience by saving preferences like language settings, login details, or shopping cart contents. Cookies enable websites to function smoothly and remember your interactions from one visit to the next.</p>
+    </li>
+    <li>
+      <h3>How We Use Cookies</h3>
+      <p>At Groviguide, we use cookies to personalize your interaction with our garden consulting services, to analyze site traffic, and to remember your preferences so that your next visit feels intuitive and efficient. Cookies assist us in improving our offerings and delivering relevant content tailored to your gardening needs.</p>
+    </li>
+    <li>
+      <h3>Types of Cookies We Use</h3>
+      <p>Our website employs several types of cookies: essential cookies necessary for core site functions, performance cookies to analyze usage, functionality cookies to remember preferences, and advertising cookies to deliver relevant promotions. Each type serves a distinct purpose enhancing your experience or our site’s operation.</p>
+    </li>
+    <li>
+      <h3>Essential Cookies</h3>
+      <p>These cookies are pivotal for the basic operation of our website, supporting security features, user login sessions, and appointment scheduling functionality. Without essential cookies, certain features would not perform correctly, impeding your ability to use our consulting services fully.</p>
+    </li>
+    <li>
+      <h3>Performance and Analytics Cookies</h3>
+      <p>Performance cookies collect information anonymously about how visitors interact with our website, such as pages visited or error messages encountered. This data helps us understand user behavior and improve performance, ensuring Groviguide delivers a seamless and responsive experience to every visitor.</p>
+    </li>
+    <li>
+      <h3>Functionality Cookies</h3>
+      <p>Functionality cookies enable the website to remember your choices and preferences, such as selected language, region, or customized gardens you are interested in. This personalization enhances usability and saves you time during future visits.</p>
+    </li>
+    <li>
+      <h3>Advertising and Targeting Cookies</h3>
+      <p>These cookies track your browsing habits to display advertisements that align with your interests. While Groviguide uses advertising responsibly, we disclose these cookies so you understand how your preferences influence the content presented to you.</p>
+    </li>
+    <li>
+      <h3>Third-Party Cookies</h3>
+      <p>We may allow trusted third parties such as analytics providers, social media platforms, or advertising partners to place cookies on your device. These third parties adhere to strict data protection policies and use cookies for purposes such as audience measurement or advertisement delivery. We do not control these cookies beyond ensuring appropriate disclosure.</p>
+    </li>
+    <li>
+      <h3>Session Cookies vs Persistent Cookies</h3>
+      <p>Session cookies are temporary and deleted when you close your browser, while persistent cookies remain on your device for a set period or until you delete them manually. Groviguide uses both types depending on functionality, with session cookies often maintaining login status and persistent cookies storing preference information.</p>
+    </li>
+    <li>
+      <h3>Cookies and Personal Data</h3>
+      <p>Cookies may collect information considered personal data under privacy laws if combined with other information. We limit cookie usage to improve functionality and analytics, avoiding intrusive collection of personal information unless you provide explicit consent.</p>
+    </li>
+    <li>
+      <h3>Your Consent for Cookie Use</h3>
+      <p>Under applicable regulations like GDPR, your consent is required before placing non-essential cookies. Our website presents a cookie consent dialog allowing you to accept or decline different categories of cookies, ensuring you have control over your data.</p>
+    </li>
+    <li>
+      <h3>Cookie Consent Dialogue Box</h3>
+      <p>At the bottom of the page, you will find an interactive cookie consent dialog box prompting you to accept or decline cookies. This consent mechanism respects your privacy choices and adapts your browsing experience accordingly.</p>
+    </li>
+    <li>
+      <h3>Managing Cookies Through Browser Settings</h3>
+      <p>You can manage or disable cookies through your browser’s privacy settings. Most browsers offer options to block third-party cookies, delete existing cookies, or block all cookies, though blocking essential cookies may limit website functionality.</p>
+    </li>
+    <li>
+      <h3>Updating Your Cookie Preferences</h3>
+      <p>You are free to revise your cookie preferences at any time by interacting with the cookie consent dialog or resetting browser cookies. We recommend reviewing your preferences periodically to ensure they align with your privacy comfort level.</p>
+    </li>
+    <li>
+      <h3>Cookie Expiration</h3>
+      <p>Cookies have varying expiration times; some expire at the end of your session, others persist for months or years. Groviguide reviews these durations regularly to balance performance and privacy considerations carefully.</p>
+    </li>
+    <li>
+      <h3>Impact of Disabling Cookies</h3>
+      <p>Disabling cookies may affect your experience on our website, including slower load times, inability to save preferences, or problems using essential services such as appointment scheduling or account login.</p>
+    </li>
+    <li>
+      <h3>Cookies and Mobile Devices</h3>
+      <p>Cookies may function differently on mobile devices or apps. While Groviguide optimizes cookies for all devices, your device’s settings or app permissions may affect cookie use and related website features.</p>
+    </li>
+    <li>
+      <h3>Cookies Related to Security</h3>
+      <p>Security cookies help protect our website and users from fraudulent activities and attacks. They monitor authentication states, enable fraud detection, and ensure the integrity of user sessions.</p>
+    </li>
+    <li>
+      <h3>Cookies for Social Media Integration</h3>
+      <p>Our website may use cookies to facilitate social media features like sharing content or posting feedback through platforms like Facebook or Twitter. These cookies are governed by the respective social media's privacy policies.</p>
+    </li>
+    <li>
+      <h3>Cookies for Personalization</h3>
+      <p>Personalization cookies tailor web content, offers, and advertisements to your interests and previous interactions on Groviguide. This enhances your experience by showing relevant gardening ideas and services.</p>
+    </li>
+    <li>
+      <h3>Cookie Policy Changes</h3>
+      <p>Groviguide may update this Cookies Policy periodically to reflect changes in legal requirements or our data practices. Changes will be posted prominently, and we encourage you to review them to stay informed about your privacy.</p>
+    </li>
+    <!-- Continue adding similar detailed points numbered 21 to 40 each with approx. 10 lines elaborating cookie-related contact topics -->
+    <li>
+      <h3>Cookies and Email Communications</h3>
+      <p>Cookies may influence the tracking and delivery of our email newsletters and communications. They help us monitor open rates, click-through rates, and tailor content relevant to your gardening interests.</p>
+    </li>
+    <li>
+      <h3>Children and Cookies</h3>
+      <p>Our website is not intended for use by children under 13. We do not knowingly use cookies to collect data from children. Parental controls and monitoring tools are encouraged to manage minors’ online activities.</p>
+    </li>
+    <li>
+      <h3>Opt-Out Options for Advertising Cookies</h3>
+      <p>You may opt out of certain advertising cookies via our cookie consent dialog or through industry tools such as the Network Advertising Initiative or Digital Advertising Alliance for broader control across multiple sites.</p>
+    </li>
+    <li>
+      <h3>Cookies Used in Third-Party Analytics</h3>
+      <p>We partner with third-party analytics providers who use cookies to help us understand visitor interactions and site performance. These partnerships operate under strict confidentiality and data protection standards.</p>
+    </li>
+    <li>
+      <h3>Cookies and Site Performance</h3>
+      <p>Performance cookies collect data that allow us to optimize our website’s loading times, user interface responsiveness, and overall usability for an efficient and enjoyable visitor experience.</p>
+    </li>
+    <li>
+      <h3>Cookies and Legal Compliance</h3>
+      <p>We use cookies in compliance with applicable privacy laws including GDPR and CCPA, ensuring that your choices and rights regarding cookie usage are respected and enforced.</p>
+    </li>
+    <li>
+      <h3>How We Store Cookie Data</h3>
+      <p>Information collected via cookies is stored securely and only retained for as long as necessary to fulfill its purpose, with regular reviews to minimize data retention.</p>
+    </li>
+    <li>
+      <h3>Cookie Identifiers</h3>
+      <p>Cookies may include unique identifiers to distinguish your session or device, which are anonymous and do not directly reveal your identity, used solely for technical and analytical purposes.</p>
+    </li>
+    <li>
+      <h3>Testing and Development Cookies</h3>
+      <p>We may use cookies during website development and testing phases to ensure features function properly. These cookies are temporary and removed before full deployment where possible.</p>
+    </li>
+    <li>
+      <h3>Cookies and Cross-Browser Behavior</h3>
+      <p>Cookies may behave differently depending on your browser choice and settings; our site strives to maintain consistent functionality across all major browsers to accommodate all users.</p>
+    </li>
+    <li>
+      <h3>Feedback on Cookie Usage</h3>
+      <p>We welcome user feedback regarding our use of cookies and privacy protections, helping us tailor policies and implement improvements ensuring user confidence and trust.</p>
+    </li>
+    <li>
+      <h3>Cookies and Accessibility</h3>
+      <p>Cookies assist in providing accessible content tailored to your needs, such as remembering font sizes or contrast settings, helping make our website inclusive for all visitors.</p>
+    </li>
+    <li>
+      <h3>Cookies in Mobile Apps and Web Browsers</h3>
+      <p>While this policy covers cookies on our website, apps may use similar tracking technologies managed separately under distinct app policies. Please review those policies when using our applications.</p>
+    </li>
+    <li>
+      <h3>How to Control Cookie Notifications</h3>
+      <p>You can manage cookie notification preferences via the consent dialog or browser settings, customizing your experience while remaining informed about data usage.</p>
+    </li>
+    <li>
+      <h3>Importance of Refreshing Consent</h3>
+      <p>When our Cookie Policy updates, you may be prompted to refresh your consent preferences to reflect the latest data use practices, ensuring your choices remain current.</p>
+    </li>
+    <li>
+      <h3>Cookie Policy and Your Rights</h3>
+      <p>This policy complements your privacy rights, giving you control over data collected through cookies and the ability to access, correct or erase related information where applicable.</p>
+    </li>
+    <li>
+      <h3>Cookies and Service Improvements</h3>
+      <p>Insights gleaned from cookies enable Groviguide to refine our consulting services, digital tools, and content offerings aligned with our users' gardening interests and behaviors.</p>
+    </li>
+    <li>
+      <h3>Cookie Identification Information</h3>
+      <p>Cookies store identification codes that are anonymous, designed to distinguish devices rather than individual identities, facilitating technical and statistical purposes only.</p>
+    </li>
+    <li>
+      <h3>Retention Periods of Cookies</h3>
+      <p>Depending on cookie type, retention can range from the end of your browser session up to several years, balancing functionality needs and data privacy considerations.</p>
+    </li>
+    <li>
+      <h3>Consent Withdrawal</h3>
+      <p>You can withdraw your cookie consent at any time by modifying settings on the consent dialog or through your browser controls. This withdrawal will affect your website experience accordingly.</p>
+    </li>
+    <li>
+      <h3>Cookies and Personalized Content</h3>
+      <p>Cookies enable tailored gardening tips, appointment reminders, and relevant promotional messages enhancing your connection with Groviguide’s services and offerings.</p>
+    </li>
+    <li>
+      <h3>Cookies and Legal Accountability</h3>
+      <p>Groviguide commits to transparency, adhering to all legal requirements concerning cookie usage, user consent management, and data protection obligations.</p>
+    </li>
+    <li>
+      <h3>Cookies and Website Functionality</h3>
+      <p>Essential cookies ensure the core operations of the website, allowing smooth navigation, secure logins, and useful features necessary for planning and consulting services.</p>
+    </li>
+    <li>
+      <h3>Cookies and User Experience</h3>
+      <p>By remembering your preferences and interactions, cookies reduce repetitive input and enhance satisfaction, contributing to a smoother visit and efficient service interaction.</p>
+    </li>
+    <li>
+      <h3>Third-Party Cookie Policies</h3>
+      <p>We provide links and information about third-party cookies where applicable, encouraging you to review their privacy practices for comprehensive understanding.</p>
+    </li>
+  </ol>
+</main>
+
+<footer>
+  <div class="footer-container" role="contentinfo" aria-label="Footer Information">
+    <h3>Contact Us</h3>
+    <address>
+      Groviguide<br />
+      16 Washington Mews, New York, NY 10003, USA<br />
+      <a href="mailto:contact@groviguide.com">contact@groviguide.com</a><br />
+      <a href="tel:+12122345678" aria-label="Phone number">+1 (212) 234-5678</a>
+    </address>
+    <p>© 2024 Groviguide. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Cookie consent dialog -->
+<div id="cookie-consent-dialog" role="dialog" aria-live="assertive" aria-label="Cookie consent dialog" aria-modal="true" tabindex="-1" style="display:none;">
+  <p>We use cookies to personalize content and ads, analyze traffic, and improve your experience on Groviguide. By clicking “Accept”, you consent to our use of cookies. You can manage your preferences or decline below.</p>
+  <div>
+    <button id="accept-cookies-btn" aria-label="Accept cookies">Accept</button>
+    <button id="decline-cookies-btn" aria-label="Decline cookies">Decline</button>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const menuButton = document.querySelector('.mobile-menu-button');
+  const mobileNav = document.getElementById('mobile-nav');
+  menuButton.addEventListener('click', () => {
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+    menuButton.setAttribute('aria-expanded', !expanded);
+    mobileNav.classList.toggle('show');
+    // Manage focusability for accessibility
+    const links = mobileNav.querySelectorAll('a');
+    links.forEach(link => link.tabIndex = !expanded ? 0 : -1);
+  });
+
+  // Cookie consent dialog management
+  const cookieDialog = document.getElementById('cookie-consent-dialog');
+  const acceptBtn = document.getElementById('accept-cookies-btn');
+  const declineBtn = document.getElementById('decline-cookies-btn');
+  const cookieConsentName = 'groviguide_cookie_consent';
+
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days*24*60*60*1000).toUTCString();
+    document.cookie = name + '=' + value + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+
+  function getCookie(name) {
+    const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
+  }
+
+  function checkCookieConsent() {
+    const consent = getCookie(cookieConsentName);
+    if (consent === null) {
+      cookieDialog.style.display = 'flex';
+      cookieDialog.focus();
+    }
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    setCookie(cookieConsentName, 'accepted', 365);
+    cookieDialog.style.display = 'none';
+  });
+
+  declineBtn.addEventListener('click', () => {
+    setCookie(cookieConsentName, 'declined', 365);
+    cookieDialog.style.display = 'none';
+  });
+
+  // Show dialog on page load if no consent given
+  window.addEventListener('load', () => {
+    checkCookieConsent();
+  });
+</script>
+</body>
+</html>
+
